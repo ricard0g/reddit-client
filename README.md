@@ -19,6 +19,7 @@ On the other hand it includes [Redux](https://redux.js.org/) for state managemen
 ## Installation
 
 Before cloning and installing the project on your device make sure that you have the latest npm version. Run this command on your terminal to check which version you have:
+
 `npm -v`
 
 If you don't have the latest version run this command:
@@ -26,6 +27,10 @@ If you don't have the latest version run this command:
 `npm install -g npm@latest`
 
 You may have to include *sudo* before the command if you are on a Unix-based system and don't have root privileges.
+
+Once all dependencies are installed, to start the app you just have to run:
+
+`npm start`
 
 
 ### Usage
