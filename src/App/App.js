@@ -1,6 +1,6 @@
 import styles from './App.module.css';
-import logo from '../assets/redditbolt-logo.png';
-import { SubReddits } from '../components/SubReddits/Subreddits';
+import logo from '../assets/reddit-client-logo.svg';
+import { SubReddits } from '../features/SubReddits/Subreddits';
 
 function App() {
   return (

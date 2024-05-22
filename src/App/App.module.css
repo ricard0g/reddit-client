@@ -6,14 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 8vh;
+  height: 8vh;
   padding: 0.6%;
   background-color: #edf2ec;
   box-shadow: 1px 2px 5px #0000003f;
 }
 
+.AppLogoLink {
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+}
+
 .AppLogo {
-  max-width: 50%;
-  height: auto;
+  max-width: 35%;
+  height: fit-content;
   display: block;
+  margin: 0 auto;
 }
