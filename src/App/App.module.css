@@ -2,14 +2,16 @@
   text-align: center;
 }
 
+/* Header */
+
 .AppHeader {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 8vh;
+  height: 10vh;
   padding: 0.6%;
   background-color: #edf2ec;
-  box-shadow: 1px 2px 5px #0000003f;
+  box-shadow: 1px 2px 5px #00000050;
 }
 
 .AppLogoLink {
@@ -19,8 +21,14 @@
 }
 
 .AppLogo {
-  max-width: 35%;
+  max-width: 30%;
   height: fit-content;
   display: block;
   margin: 0 auto;
+}
+
+/* Main */
+
+.AppMain {
+  padding: 1vw 1vw;
 }
