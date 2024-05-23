@@ -1,0 +1,45 @@
+.postContainer {
+    width: 100%;
+    border-radius: 10px;
+    padding: 1% 2%;
+    transition: all 250ms ease;
+}
+
+.postContainer:hover {
+    background-color: #edf2ec;
+}
+
+/* Post Header */
+
+.postHeader {
+    text-align: left;
+}
+
+.subRedditSource {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.postTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: -0.9%;
+}
+
+/* Post Main */
+
+.postText {
+    text-align: left;
+    
+}
+
+.postImage {
+    max-width: 50%;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 1% 0;
+}
