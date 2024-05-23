@@ -1,5 +1,6 @@
 .SubRedditsContainer {
     width: 18vw;
+    height: fit-content;
     background-color: #edf2ec;
     padding: 1.5%;
     border-radius: 10px;

@@ -1,6 +1,7 @@
 import styles from './App.module.css';
 import logo from '../assets/reddit-client-logo.svg';
 import { SubReddits } from '../features/SubReddits/Subreddits';
+import { Posts } from '../features/Posts/Posts';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main className={styles.AppMain}>
         <SubReddits />
+        <Posts />
       </main>
     </div>
   );

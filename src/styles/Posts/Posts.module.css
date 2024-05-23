@@ -1,0 +1,24 @@
+.feed {
+    max-width: 81vw;
+    height: auto;
+    padding: 0 1% 0 5%;
+}
+
+.postContainer {
+    width: 100%;
+    border-radius: 10px;
+    padding: 1% 2%;
+    transition: all 250ms ease;
+}
+
+.postContainer:hover {
+    background-color: #edf2ec;
+}
+
+.postHeader {
+    text-align: left;
+}
+
+.postImage {
+    max-width: 50%;
+}

@@ -30,5 +30,6 @@
 /* Main */
 
 .AppMain {
+  display: flex;
   padding: 1vw 1vw;
 }
