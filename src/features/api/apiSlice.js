@@ -19,7 +19,15 @@ export const apiSlice = createApi({
         getSubRedditPosts: builder.query({
             query: (subreddit) => `/r/${subreddit}/.json`,
         }),
+        getPostComments: builder.query({
+            query: (postPermalink) => `${postPermalink}`,
+        }),
     }),
 });
 
-export const { useGetSubRedditsQuery, useGetPostsQuery, useGetSubRedditPostsQuery } = apiSlice;
+export const {
+    useGetSubRedditsQuery,
+    useGetPostsQuery,
+    useGetSubRedditPostsQuery,
+    useGetPostCommentsQuery,
+} = apiSlice;

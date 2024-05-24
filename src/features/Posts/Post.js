@@ -3,6 +3,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Microlink from "@microlink/react";
 import { Reddit } from "../../util/Reddit";
+import { Comments } from "../Comments/Comments";
+import commentsIcon from "../../assets/comments-icon.svg";
 
 function Post(props) {
     let timeDiff =
@@ -21,7 +23,6 @@ function Post(props) {
         }
     }
 
-
     const post = props.post;
 
     return (
@@ -29,7 +30,7 @@ function Post(props) {
             <article className={styles.postContainer}>
                 <header className={styles.postHeader}>
                     <p className={styles.subRedditSource}>
-                        {post.data.subreddit_name_prefixed} - {timeDiff}
+                        {post.data.subreddit_name_prefixed} | {timeDiff}
                     </p>
                     <h3 className={styles.postTitle}>{post.data.title}</h3>
                 </header>
@@ -42,7 +43,15 @@ function Post(props) {
                     </ReactMarkdown>
                     {Reddit.checkAndRenderContent(post)}
                 </main>
+                <footer>
+                    <p>{post.data.author}</p>
+                    <div className={styles.commentsButton}>
+                        <span>{post.data.num_comments}</span>
+                        <img src={commentsIcon} alt="Comments"/>
+                    </div>
+                </footer>
             </article>
+            <Comments postPermalink={post.data.permalink}/>
             <div className={styles.divider}></div>
         </section>
     );
