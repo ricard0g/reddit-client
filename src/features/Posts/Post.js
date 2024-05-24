@@ -1,10 +1,9 @@
 import styles from "../../styles/Posts/Post.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import Microlink from "@microlink/react";
 import { Reddit } from "../../util/Reddit";
 import { Comments } from "../Comments/Comments";
-import commentsIcon from "../../assets/comments-icon.svg";
+import commentsIcon from "../../assets/comment-icon.svg";
 
 function Post(props) {
     let timeDiff =
@@ -43,15 +42,14 @@ function Post(props) {
                     </ReactMarkdown>
                     {Reddit.checkAndRenderContent(post)}
                 </main>
-                <footer>
+                <footer className={styles.footer}>
                     <p>{post.data.author}</p>
                     <div className={styles.commentsButton}>
                         <span>{post.data.num_comments}</span>
-                        <img src={commentsIcon} alt="Comments"/>
+                        <img src={commentsIcon} alt="Comments" className={styles.commentsIcon}/>
                     </div>
                 </footer>
             </article>
-            <Comments postPermalink={post.data.permalink}/>
             <div className={styles.divider}></div>
         </section>
     );
