@@ -5,7 +5,6 @@ import remarkGfm from "remark-gfm";
 function Post(props) {
 
     let timeDiff = Math.round((Date.now() - (props.post.data.created_utc * 1000)) / 3600000) + " hr. ago";
-    console.log(timeDiff)
     if (timeDiff < 1) {//in case is less than one hour
         timeDiff = Math.round((Date.now() - (props.post.data.created_utc * 1000)) / 60000) + " min. ago";
         if (timeDiff < 1) {//in case is less than one minute

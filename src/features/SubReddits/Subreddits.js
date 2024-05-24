@@ -2,7 +2,8 @@ import styles from "../../styles/SubReddits/Subreddits.module.css";
 import { useGetSubRedditsQuery } from "../api/apiSlice";
 import subRedditIcon from "../../assets/SubRedditDefaulticon.svg";
 
-function SubReddits() {
+function SubReddits({ handleSubredditSelection }) {
+
   const {
     data: subRedditsList,
     isLoading,
@@ -17,7 +18,7 @@ function SubReddits() {
     content = <p>Loading...</p>;
   } else if (isSuccess) {
     content = subRedditsList.data.children.map((subReddit) => (
-      <li key={subReddit.data.id} className={styles.subRedditListItem}>
+      <li key={subReddit.data.id} className={styles.subRedditListItem} onClick={handleSubredditSelection} name={subReddit.data.display_name}>
         <img
           className={styles.subRedditItemIcon}
           src={

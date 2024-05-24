@@ -16,7 +16,10 @@ export const apiSlice = createApi({
                 },
             }),
         }),
+        getSubRedditPosts: builder.query({
+            query: (subreddit) => `/r/${subreddit}/.json`,
+        }),
     }),
 });
 
-export const { useGetSubRedditsQuery, useGetPostsQuery } = apiSlice;
+export const { useGetSubRedditsQuery, useGetPostsQuery, useGetSubRedditPostsQuery } = apiSlice;
