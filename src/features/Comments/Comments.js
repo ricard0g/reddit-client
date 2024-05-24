@@ -20,7 +20,8 @@ function Comments({postPermalink}) {
             return (
                 <Comment comment={comment} />
             )
-        })
+        });
+        console.log(content);
     } else if (isError) {
         console.log(`Directly this --> ${error}`);
         content = <p>{error.toString()}</p>;

@@ -20,7 +20,7 @@ export const apiSlice = createApi({
             query: (subreddit) => `/r/${subreddit}/.json`,
         }),
         getPostComments: builder.query({
-            query: (postPermalink) => `${postPermalink}`,
+            query: (postPermalink) => `${postPermalink}/.json`,
         }),
     }),
 });

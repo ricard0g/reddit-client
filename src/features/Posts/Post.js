@@ -4,8 +4,15 @@ import remarkGfm from "remark-gfm";
 import { Reddit } from "../../util/Reddit";
 import { Comments } from "../Comments/Comments";
 import commentsIcon from "../../assets/comment-icon.svg";
+import { useState } from "react";
 
 function Post(props) {
+    const [showComments, setShowComments] = useState(false);
+
+    const handleClick = (e) => {
+        setShowComments(!showComments);
+    }
+
     let timeDiff =
         Math.round(
             (Date.now() - props.post.data.created_utc * 1000) / 3600000
@@ -44,11 +51,13 @@ function Post(props) {
                 </main>
                 <footer className={styles.footer}>
                     <p>by {post.data.author}</p>
-                    <button className={styles.commentsButton}>
+                    <button className={styles.commentsButton} onClick={handleClick}>
                         <img src={commentsIcon} alt="Comments" className={styles.commentsIcon}/>
+                        {post.data.num_comments}
                     </button>
                 </footer>
             </article>
+            {showComments ? <Comments postPermalink={post.data.permalink}/> : null}
             <div className={styles.divider}></div>
         </section>
     );
