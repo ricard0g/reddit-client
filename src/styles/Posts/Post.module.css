@@ -37,6 +37,16 @@
     max-width: 50%;
 }
 
+/* Gallery Content */
+
+.galleryContainer {
+    text-align: center;
+}
+
+.galleryImage {
+    margin: 0 auto;
+}
+
 .divider {
     width: 100%;
     height: 1px;

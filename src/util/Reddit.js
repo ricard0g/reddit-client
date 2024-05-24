@@ -1,20 +1,49 @@
-export const Reddit = {
-    getSubReddits: async () => {
-        try {
-            const response = await fetch('https://www.reddit.com/subreddits/popular.json');
+import Microlink from "@microlink/react";
+import styles from "../styles/Posts/Post.module.css";
+import logo from "../assets/reddit-client-logo.svg";
 
-            if(response){
-                return response.data.children.map((subreddit) => {
-                    return ({
-                        name: subreddit.data.display_name,
-                        prefixedName: subreddit.data.display_name_prefixed,
-                        icon: subreddit.data.icon_img,
-                        id: subreddit.data.id
-                    })
-                })
-            };
-        } catch(error) {
-            console.log(error)
+export const Reddit = {
+    checkAndRenderContent: (post) => {
+        const regexpUrl = /\.(jpeg|jpg|png)$/;
+        const redditUrl = /https:\/\/www\.reddit\.com/;
+
+        if (regexpUrl.test(post.data.url)) {
+            return (
+                <img
+                    src={post.data.url}
+                    alt="post"
+                    className={styles.postImage}
+                />
+            );
+        } else if (post.data.is_gallery) {
+            return (
+                <div className={styles.galleryContainer}>
+                    <Microlink url={post.data.url} size="normal" media="logo" className={styles.galleryImage} />
+                    <p className={styles.galleryExplanation}>
+                        This is Gallery Content, to see more go{" "}
+                        <a href={post.data.url} className={styles.galleryLink}>
+                            here
+                        </a>
+                    </p>
+                </div>
+            );
+        } else if (!redditUrl.test(post.data.url)) {
+            return (
+                <Microlink
+                    url={post.data.url}
+                    size="normal"
+                    media={post.data.thumbnail}
+                />
+            );
+        } else if (post.data.is_video) {
+            console.log(post.data.is_video);
+            return (
+                <video controls>
+                    <source
+                        src={post.data.media.reddit_video.fallback_url}
+                    ></source>
+                </video>
+            );
         }
-    }
-}
+    },
+};

@@ -1,19 +1,28 @@
 import styles from "../../styles/Posts/Post.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Microlink from "@microlink/react";
+import { Reddit } from "../../util/Reddit";
 
 function Post(props) {
-
-    let timeDiff = Math.round((Date.now() - (props.post.data.created_utc * 1000)) / 3600000) + " hr. ago";
-    if (timeDiff < 1) {//in case is less than one hour
-        timeDiff = Math.round((Date.now() - (props.post.data.created_utc * 1000)) / 60000) + " min. ago";
-        if (timeDiff < 1) {//in case is less than one minute
+    let timeDiff =
+        Math.round(
+            (Date.now() - props.post.data.created_utc * 1000) / 3600000
+        ) + " hr. ago";
+    if (timeDiff < 1) {
+        //in case is less than one hour
+        timeDiff =
+            Math.round(
+                (Date.now() - props.post.data.created_utc * 1000) / 60000
+            ) + " min. ago";
+        if (timeDiff < 1) {
+            //in case is less than one minute
             timeDiff = "just now";
         }
     }
 
+
     const post = props.post;
-    const regexpUrl = /\.(jpeg|jpg|png)$/;
 
     return (
         <section>
@@ -31,13 +40,7 @@ function Post(props) {
                     >
                         {post.data.selftext}
                     </ReactMarkdown>
-                    {regexpUrl.test(post.data.url) ? (
-                        <img
-                            src={post.data.url}
-                            alt="post"
-                            className={styles.postImage}
-                        />
-                    ) : null}
+                    {Reddit.checkAndRenderContent(post)}
                 </main>
             </article>
             <div className={styles.divider}></div>
