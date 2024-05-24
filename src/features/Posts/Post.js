@@ -43,11 +43,10 @@ function Post(props) {
                     {Reddit.checkAndRenderContent(post)}
                 </main>
                 <footer className={styles.footer}>
-                    <p>{post.data.author}</p>
-                    <div className={styles.commentsButton}>
-                        <span>{post.data.num_comments}</span>
+                    <p>by {post.data.author}</p>
+                    <button className={styles.commentsButton}>
                         <img src={commentsIcon} alt="Comments" className={styles.commentsIcon}/>
-                    </div>
+                    </button>
                 </footer>
             </article>
             <div className={styles.divider}></div>

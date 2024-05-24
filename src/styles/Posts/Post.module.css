@@ -56,16 +56,22 @@
 }
 
 .commentsButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #327325;
+    border: 2px solid #327325;
     border-radius: 10px;
-    padding: 2%;
+    width: 10%;
+    height: fit-content;
+    padding: 1%;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px #327325;
+    transition: all 250ms ease;
+}
+
+.commentsButton:hover {
+    background-color: #c9dec5;
 }
 
 .commentsIcon {
-    max-width: 10%;
+    max-width: 50%;
     height: auto;
 }
 
