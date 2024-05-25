@@ -2,7 +2,7 @@ import styles from "../../styles/Comments/Comments.module.css";
 import { useGetPostCommentsQuery } from "../api/apiSlice";
 import { Comment } from "./Comment";
 
-function Comments({postPermalink}) {
+function Comments({ postPermalink }) {
     const {
         data: comments,
         isLoading,
@@ -11,15 +11,13 @@ function Comments({postPermalink}) {
         error,
     } = useGetPostCommentsQuery(postPermalink);
 
-    let content
+    let content;
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <p>Loading...</p>;
     } else if (isSuccess) {
         content = comments[1].data.children.map((comment) => {
-            return (
-                <Comment comment={comment} />
-            )
+            return <Comment comment={comment} />;
         });
         console.log(content);
     } else if (isError) {
@@ -29,9 +27,11 @@ function Comments({postPermalink}) {
 
     return (
         <section className={styles.comments}>
+            <div className={styles.divider}></div>
+            <h2 className={styles.titleCommentsSection}>Comments</h2>
             {content}
         </section>
-    )
+    );
 }
 
-export {Comments};
+export { Comments };

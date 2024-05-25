@@ -1,0 +1,17 @@
+.comments {
+    margin: 0 auto;
+    width: 85%;
+}
+
+.titleCommentsSection {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.divider {
+    margin: 5% auto;
+    width: 90%;
+    height: 1px;
+    background-color: black;
+}

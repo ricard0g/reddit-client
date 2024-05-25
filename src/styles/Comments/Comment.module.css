@@ -1,0 +1,36 @@
+.commentContainer {
+    padding: 0 1% 1% 1%;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    background-color: #f0f0f060;
+    transition: all 100ms linear;
+}
+
+.commentContainer:hover {
+    background-color: #edf2ecbd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.432);
+}
+
+.commentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -2%;
+}
+
+.profileName {
+    display: inline;
+    font-style: italic;
+    color: #327325;
+    font-weight: bold;
+}
+
+.timeDifference {
+    display: inline;
+    font-size: 0.85rem;
+}
+
+.commentText {
+    text-align: left;
+    color: rgb(59, 59, 59);
+}

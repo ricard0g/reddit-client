@@ -61,7 +61,9 @@
     background-color: transparent;
     cursor: pointer;
     text-align: center;
+    transition: all 100ms linear;
 }
+
 
 .commentsIcon {
     max-width: 50%;

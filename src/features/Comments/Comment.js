@@ -1,4 +1,4 @@
-import styles from "../../styles/Comments/Comments.module.css";
+import styles from "../../styles/Comments/Comment.module.css";
 
 function Comment({ comment }) {
     let timeDiff =
@@ -16,9 +16,10 @@ function Comment({ comment }) {
     }
 
     return (
-        <section>
-            <div>
-                <p className={styles.profileName}>{comment.data.author}</p>
+        <section className={styles.commentContainer}>
+            <div className={styles.divider}></div>
+            <div className={styles.commentHeader}>
+                <p className={styles.profileName}>by {comment.data.author}</p>
                 <p className={styles.timeDifference}>{timeDiff}</p>
             </div>
             <p className={styles.commentText}>{comment.data.body}</p>
