@@ -1,6 +1,5 @@
 import Microlink from "@microlink/react";
 import styles from "../styles/Posts/Post.module.css";
-import logo from "../assets/reddit-client-logo.svg";
 
 export const Reddit = {
     checkAndRenderContent: (post) => {
