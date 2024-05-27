@@ -2,6 +2,16 @@ import { useGetPostsQuery, useGetSubRedditPostsQuery } from "../api/apiSlice";
 import styles from "../../styles/Posts/Posts.module.css";
 import { Post } from "./Post";
 
+const usePostsQuery = (subRedditSelected) => {
+    // Determine which query function to use based on subRedditSelected
+    const queryFunction = subRedditSelected
+      ? useGetSubRedditPostsQuery
+      : useGetPostsQuery;
+  
+    // Return the selected query function
+    return queryFunction(subRedditSelected);
+  };
+
 function Posts({ subRedditSelected }) {
     const {
         data: posts,
@@ -9,9 +19,7 @@ function Posts({ subRedditSelected }) {
         isSuccess,
         isError,
         error,
-    } = subRedditSelected
-        ? useGetSubRedditPostsQuery(subRedditSelected)
-        : useGetPostsQuery();
+    } = usePostsQuery(subRedditSelected);
 
     let content;
     
