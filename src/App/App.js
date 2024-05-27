@@ -17,7 +17,7 @@ function App() {
         <a className={styles.AppLogoLink} href='https://3000-idx-reddit-client-1716205157120.cluster-rcyheetymngt4qx5fpswua3ry4.cloudworkstations.dev/'><img className={styles.AppLogo} src={logo} alt='RedditBolt Logo'/></a>
       </header>
       <main className={styles.AppMain}>
-        <SubReddits handleSubredditSelection={handleSubredditSelection} />
+        <SubReddits handleSubredditSelection={handleSubredditSelection} subRedditSelected={subRedditSelected} />
         <Posts subRedditSelected={subRedditSelected} />
       </main>
     </div>

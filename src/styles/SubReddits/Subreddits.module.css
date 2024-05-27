@@ -1,6 +1,11 @@
 .SubRedditsContainer {
+    position: sticky;
+    top: 2vh;
     width: 18vw;
-    height: fit-content;
+    max-height: 96vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #3273251c transparent;
     background-color: #edf2ec;
     padding: 1.5%;
     border-radius: 10px;
@@ -36,6 +41,12 @@
     border-radius: 10px;
     padding: 2%;
     transition: all 250ms ease;
+}
+
+.isSelected {
+    background-color: #aed6a6;
+    border-right: 10px solid #327325;
+    padding-left: 10px;
 }
 
 .subRedditListItem:hover {

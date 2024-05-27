@@ -50,7 +50,7 @@ function Post(props) {
                     {Reddit.checkAndRenderContent(post)}
                 </main>
                 <footer className={styles.footer}>
-                    <p>by {post.data.author}</p>
+                    <p>by <span className={styles.postAuthor}>{post.data.author}</span></p>
                     <button className={styles.commentsButton} onClick={handleClick}>
                         <img src={commentsIcon} alt="Comments" className={styles.commentsIcon}/>
                         {post.data.num_comments}

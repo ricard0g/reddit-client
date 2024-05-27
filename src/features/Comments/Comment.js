@@ -1,4 +1,6 @@
 import styles from "../../styles/Comments/Comment.module.css";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function Comment({ comment }) {
     let timeDiff =
@@ -22,7 +24,10 @@ function Comment({ comment }) {
                 <p className={styles.profileName}>by {comment.data.author}</p>
                 <p className={styles.timeDifference}>{timeDiff}</p>
             </div>
-            <p className={styles.commentText}>{comment.data.body}</p>
+            <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                className={styles.commentText}
+            >{comment.data.body}</ReactMarkdown>
         </section>
     );
 }
