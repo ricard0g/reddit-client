@@ -1,11 +1,16 @@
 .searchBarContainer {
     position: relative;
     display: flex;
-    height: 5vh;
-    width: 100%;
-    margin: 0 auto;
-    background-color: white;
+    height: 8vh;
+    width: 110%;
+    margin: 0 auto 0 -5%;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    transition: all 150ms ease;
+}
+
+.searchBarContainer:hover {
+    background-color: #32732544;
 }
 
 .searchInput {
@@ -13,7 +18,9 @@
     border: none;
     width: 100%;
     height: 100%;
-    padding: 2%;
+    padding: 0 4%;
+    font-size: 1.125rem;
+    outline: none;
     border-radius: 10px;
 }
 
@@ -21,7 +28,7 @@
     position: absolute;
     right: 1%;
     width: 10%;
-    height: 5vh;
+    height: 8vh;
     background-color: transparent;
     border: none;
     cursor: pointer;

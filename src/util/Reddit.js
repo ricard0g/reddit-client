@@ -45,4 +45,21 @@ export const Reddit = {
             );
         }
     },
+    displayVotes: (ups) => {
+        const numberWithCommas = (x) => {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
+
+        const displayShortNumber = (ups) => {
+            if (ups < 1000) {
+                return ups;
+            }
+
+            const shortNumber = ups / 1000;
+            const formattedNumber = shortNumber.toFixed(1);
+            return `${numberWithCommas(formattedNumber)}k`;
+        }
+
+        return displayShortNumber(ups);
+    }
 };

@@ -43,6 +43,10 @@ function Posts({ subRedditSelected }) {
                     />
                 )
             });
+
+            if (filteredFeed.length === 0) {
+               filteredFeed  = <p>No results found :\</p>;
+            }
         }
         content = filteredFeed ? filteredFeed : feed.map((post) => {
             return <Post post={post} />;
