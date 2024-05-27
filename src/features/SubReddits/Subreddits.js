@@ -1,6 +1,7 @@
 import styles from "../../styles/SubReddits/Subreddits.module.css";
 import { useGetSubRedditsQuery } from "../api/apiSlice";
 import subRedditIcon from "../../assets/SubRedditDefaulticon.svg";
+import { SearchBar } from "../Search/SearchBar";
 
 function SubReddits({ handleSubredditSelection, subRedditSelected }) {
     const {
@@ -48,6 +49,7 @@ function SubReddits({ handleSubredditSelection, subRedditSelected }) {
 
     return (
         <section className={styles.SubRedditsContainer}>
+            <SearchBar />
             <h2 className={styles.communitiesTitle}>COMMUNITIES</h2>
             <div className={styles.separationLine}></div>
             <ul className={styles.subRedditList}>{content}</ul>

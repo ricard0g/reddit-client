@@ -1,0 +1,32 @@
+.searchBarContainer {
+    position: relative;
+    display: flex;
+    height: 5vh;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.searchInput {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.searchButton {
+    position: absolute;
+    right: 1%;
+    width: 10%;
+    height: 5vh;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.searchIcon {
+    max-width: 100%;
+}

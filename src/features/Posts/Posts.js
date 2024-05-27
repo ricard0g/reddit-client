@@ -1,16 +1,18 @@
 import { useGetPostsQuery, useGetSubRedditPostsQuery } from "../api/apiSlice";
 import styles from "../../styles/Posts/Posts.module.css";
 import { Post } from "./Post";
+import { useSelector } from "react-redux";
+import { selectSearchTerm } from "../Search/searchSlice";
 
 const usePostsQuery = (subRedditSelected) => {
     // Determine which query function to use based on subRedditSelected
     const queryFunction = subRedditSelected
-      ? useGetSubRedditPostsQuery
-      : useGetPostsQuery;
-  
+        ? useGetSubRedditPostsQuery
+        : useGetPostsQuery;
+
     // Return the selected query function
     return queryFunction(subRedditSelected);
-  };
+};
 
 function Posts({ subRedditSelected }) {
     const {
@@ -21,14 +23,28 @@ function Posts({ subRedditSelected }) {
         error,
     } = usePostsQuery(subRedditSelected);
 
+    const searchTerm = useSelector(selectSearchTerm);
+
     let content;
-    
+
     if (isLoading) {
         content = <div>Loading...</div>;
     } else if (isSuccess) {
         console.log(`Got this as success answer --> ${posts}`);
         const feed = posts.data.children;
-        content = feed.map((post) => {
+        let filteredFeed;
+        if (searchTerm) {
+            filteredFeed = feed.filter((post) =>
+                post.data.title.toLowerCase().includes(searchTerm.toLowerCase())
+            ).map(post => {
+                return (
+                    <Post
+                        post={post}
+                    />
+                )
+            });
+        }
+        content = filteredFeed ? filteredFeed : feed.map((post) => {
             return <Post post={post} />;
         });
     } else if (isError) {
