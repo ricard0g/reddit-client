@@ -3,6 +3,7 @@ import styles from "../../styles/Posts/Posts.module.css";
 import { Post } from "./Post";
 import { useSelector } from "react-redux";
 import { selectSearchTerm } from "../Search/searchSlice";
+import { PostSkeleton } from "./PostSkeleton";
 
 const usePostsQuery = (subRedditSelected) => {
     // Determine which query function to use based on subRedditSelected
@@ -28,35 +29,41 @@ function Posts({ subRedditSelected }) {
     let content;
 
     if (isLoading) {
-        content = <div>Loading...</div>;
+        content = <PostSkeleton posts={8} />;
     } else if (isSuccess) {
         console.log(`Got this as success answer --> ${posts}`);
         const feed = posts.data.children;
         let filteredFeed;
         if (searchTerm) {
-            filteredFeed = feed.filter((post) =>
-                post.data.title.toLowerCase().includes(searchTerm.toLowerCase())
-            ).map(post => {
-                return (
-                    <Post
-                        post={post}
-                    />
+            filteredFeed = feed
+                .filter((post) =>
+                    post.data.title
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
                 )
-            });
+                .map((post) => {
+                    return <Post post={post} />;
+                });
 
             if (filteredFeed.length === 0) {
-               filteredFeed  = <p>No results found :\</p>;
+                filteredFeed = <p>No results found :\</p>;
             }
         }
-        content = filteredFeed ? filteredFeed : feed.map((post) => {
-            return <Post post={post} />;
-        });
+        content = filteredFeed
+            ? filteredFeed
+            : feed.map((post) => {
+                  return <Post post={post} />;
+              });
     } else if (isError) {
         console.log(`Directly this --> ${error}`);
         content = <p>{error.toString()}</p>;
     }
 
-    return <section className={styles.feed}>{content}</section>;
+    return (
+        <section className={styles.feed}>
+            {content}
+        </section>
+    );
 }
 
 export { Posts };
