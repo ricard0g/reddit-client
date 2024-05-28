@@ -10,25 +10,26 @@ function Post(props) {
     const [showComments, setShowComments] = useState(false);
     const [positiveVote, setPositiveVote] = useState(false);
     const [negativeVote, setNegativeVote] = useState(false);
-    const [vote, setVote] = useState(false);
 
     const handleClick = useCallback((e) => {
         setShowComments(!showComments);
-    });
+    }, [showComments]);
 
     const handleVote = useCallback((e) => {
         console.log(e.target);
-        if (!vote) {
-            setPositiveVote(false);
-            setNegativeVote(false);
-        } else if (e.target.classList.contains(styles.upVote)) {
+        if (e.target.classList.contains(styles.upVote) && !positiveVote) {
             console.log(`Yes`);
             setPositiveVote(true);
-        } else if (e.target.classList.contains(styles.downVote)) {
-            console.log("No")
+            setNegativeVote(false);
+        } else if (e.target.classList.contains(styles.downVote) && !negativeVote) {
+            console.log("No");
             setNegativeVote(true);
+            setPositiveVote(false);
+        } else if (positiveVote || negativeVote) {
+            setPositiveVote(false);
+            setNegativeVote(false);
         }
-    });
+    }, [positiveVote, negativeVote]);
 
     let timeDiff =
         Math.round(
