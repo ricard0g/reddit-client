@@ -1,0 +1,19 @@
+.commentSkeleton {
+    width: 70%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 0px, #f8f8f8 400px, #f0f0f0 800px);
+    margin: 0 auto 2.5% auto;
+    animation: appear 250ms linear;
+}
+
+@keyframes appear {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
