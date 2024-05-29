@@ -29,9 +29,7 @@ function Posts({ subRedditSelected }) {
     let content;
 
     if (isLoading) {
-        content = (
-                <PostSkeleton posts={10} />
-        );
+        content = <PostSkeleton posts={10} />;
     } else if (isSuccess) {
         console.log(`Got this as success answer --> ${posts}`);
         const feed = posts.data.children;
