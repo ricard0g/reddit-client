@@ -17,10 +17,10 @@ export const Reddit = {
         } else if (post.data.is_gallery) {
             return (
                 <div className={styles.galleryContainer}>
-                    <Microlink url={post.data.url} size="normal" media="logo" className={styles.galleryImage} />
+                    <Microlink aria-label="Link to see the Gallery images" url={post.data.url} size="normal" media="logo" className={styles.galleryImage} />
                     <p className={styles.galleryExplanation}>
                         This is Gallery Content, to see more go{" "}
-                        <a href={post.data.url} className={styles.galleryLink}>
+                        <a aria-label="Link to see the Gallery images" href={post.data.url} className={styles.galleryLink}>
                             here
                         </a>
                     </p>

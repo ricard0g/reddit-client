@@ -54,6 +54,7 @@ function Post(props) {
             <section className={styles.postVotesContainer}>
                 <div className={styles.votesContainer}>
                     <button
+                        aria-label="Up Vote"
                         className={`${styles.votesButton} ${styles.upVote} ${
                             positiveVote ? styles.upVoteClick : ""
                         }`}
@@ -89,6 +90,7 @@ function Post(props) {
                         {Reddit.displayVotes(post.data.ups)}
                     </p>
                     <button
+                        aria-label= "Down Vote"
                         className={`${styles.votesButton} ${styles.downVote} ${
                             negativeVote ? styles.downVoteClick : ""
                         }`}
