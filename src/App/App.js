@@ -3,7 +3,6 @@ import logo from "../assets/reddit-client-logo.svg";
 import { SubReddits } from "../features/SubReddits/Subreddits";
 import { Posts } from "../features/Posts/Posts";
 import { useState } from "react";
-import { SkeletonTheme } from "react-loading-skeleton";
 
 function App() {
     const [subRedditSelected, setSubredditSelected] = useState();
@@ -13,7 +12,6 @@ function App() {
     };
 
     return (
-        <SkeletonTheme baseColor="#000000" highlightColor="#525252">
             <div className={styles.App}>
                 <header className={styles.AppHeader}>
                     <a
@@ -35,7 +33,6 @@ function App() {
                     <Posts subRedditSelected={subRedditSelected} />
                 </main>
             </div>
-        </SkeletonTheme>
     );
 }
 

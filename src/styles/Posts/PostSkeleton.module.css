@@ -3,10 +3,27 @@
     height: 50vh;
     padding: 0.5rem;
     border-radius: 10px;
-    margin-bottom: 5%;
+    border: 1px solid #cccccc5b;
+    margin-bottom: 2.5%;
+    animation: appear 250ms linear;
+}
+
+@keyframes appear {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
 }
 
 .skeleton {
-    width: 100%;
-    background-color: darkgrey;
+    width: 90%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 0px, #f8f8f8 400px, #f0f0f0 800px);
+    margin-left: 10%;
+    margin-bottom: 1.5%;
 }

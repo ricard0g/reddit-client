@@ -29,7 +29,9 @@ function Posts({ subRedditSelected }) {
     let content;
 
     if (isLoading) {
-        content = <PostSkeleton posts={8} />;
+        content = (
+                <PostSkeleton posts={10} />
+        );
     } else if (isSuccess) {
         console.log(`Got this as success answer --> ${posts}`);
         const feed = posts.data.children;
@@ -59,11 +61,7 @@ function Posts({ subRedditSelected }) {
         content = <p>{error.toString()}</p>;
     }
 
-    return (
-        <section className={styles.feed}>
-            {content}
-        </section>
-    );
+    return <section className={styles.feed}>{content}</section>;
 }
 
 export { Posts };
